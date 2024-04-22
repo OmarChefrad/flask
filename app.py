@@ -25,5 +25,11 @@ def endpoint2():
         result = future.result()  # This blocks until the task is completed
     return jsonify({'result': result})
 
+@app.route('/task3')
+def endpoint3():
+    # Simulate a time-consuming task
+    time.sleep(5)
+    return jsonify({'result': 'Task completed'})
+
 if __name__ == '__main__':
     app.run(debug=True)
