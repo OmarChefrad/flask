@@ -25,6 +25,12 @@ async def time_consuming_task():
     # Simulate a time-consuming task
     await asyncio.sleep(5)
     return 'Task completed'
+    
+@app.route('/sequential')
+def sequential_endpoint():
+    # Execute time-consuming task sequentially (blocking)
+    result = time_consuming_task(5)
+    return jsonify({'result': result})
 
 @app.route('/task1')
 async def endpoint1():
